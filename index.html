@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Daily Contribution</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="syles.css">
+
+</head>
+
+<body>
+
+<header>
+  <h1>Daily Contribution</h1>
+<div>📅 <span id="today">Today</span></div>
+</header>
+
+<main>
+
+  <!-- Today Status -->
+  <section class="card">
+   <div class="status">
+  Status: <strong id="statusText">Not Contributed Today</strong>
+</div>
+
+<p id="redrawStatus" style="margin-bottom:8px;"></p>
+<p id="countdown" style="color:#555;"></p>
+
+
+    <a href="#" class="cta">Contribute Today</a>
+
+    <div class="stats">
+      <div class="stat">
+        <div><strong>12</strong></div>
+        <small>Day Streak</small>
+      </div>
+      <div class="stat">
+        <div><strong>$240</strong></div>
+        <small>Total</small>
+      </div>
+      <div class="stat">
+        <div><strong>$40</strong></div>
+        <small>This Month</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- History -->
+  <section class="card">
+    <h2>History</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Amount</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2026-02-05</td>
+          <td>$20</td>
+          <td>✅</td>
+        </tr>
+        <tr>
+          <td>2026-02-04</td>
+          <td>$20</td>
+          <td>✅</td>
+        </tr>
+        <tr>
+          <td>2026-02-03</td>
+          <td>$20</td>
+          <td>❌</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</main>
+
+</body>
+<script src="script.js"></script>
+
+
+</html>
