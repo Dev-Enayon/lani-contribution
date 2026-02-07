@@ -27,6 +27,7 @@
 
 <main>
   <!-- Today Status -->
+<<<<<<< HEAD
   <section class="card">
     <div class="status">
       Status: <strong id="statusText">Not Contributed Today</strong>
@@ -34,24 +35,51 @@
 
     <p id="redrawStatus" style="margin-bottom:8px;"></p>
     <p id="countdown" style="color:#555;"></p>
+=======
+ <section class="card">
 
-    <a href="#" class="cta">Contribute Today</a>
+  <div class="status">
+    Status: <strong id="statusText">Not Contributed Today</strong>
+  </div>
 
-    <div class="stats">
-      <div class="stat">
-        <div><strong>12</strong></div>
-        <small>Day Streak</small>
-      </div>
-      <div class="stat">
-        <div><strong>$240</strong></div>
-        <small>Total</small>
-      </div>
-      <div class="stat">
-        <div><strong>$40</strong></div>
-        <small>This Month</small>
-      </div>
+  <p id="redrawStatus"></p>
+  <p id="countdown"></p>
+>>>>>>> refs/remotes/origin/main
+
+  <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap;">
+    <input
+      type="number"
+      id="amountInput"
+      placeholder="Enter amount (₦)"
+      style="padding:12px 14px;border-radius:10px;border:1px solid #e5e7eb;width:200px;"
+    />
+
+    <button id="contributeBtn" class="cta">
+      Contribute
+    </button>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <strong id="balance">₦0</strong>
+      <small>Current Balance</small>
     </div>
-  </section>
+    <div class="stat">
+      <strong id="streak">0</strong>
+      <small>Day Streak</small>
+    </div>
+    <div class="stat">
+      <strong id="total">₦0</strong>
+      <small>Total Contributed</small>
+    </div>
+  </div>
+
+</section>
+
+
+  <tbody id="historyTable">
+</tbody>
+
 
   <!-- History -->
   <section class="card">
@@ -67,17 +95,17 @@
       <tbody>
         <tr>
           <td>2026-02-05</td>
-          <td>$20</td>
+          <td>₦0</td>
           <td>✅</td>
         </tr>
         <tr>
           <td>2026-02-04</td>
-          <td>$20</td>
+          <td>₦0</td>
           <td>✅</td>
         </tr>
         <tr>
           <td>2026-02-03</td>
-          <td>$20</td>
+          <td>₦0</td>
           <td>❌</td>
         </tr>
       </tbody>
