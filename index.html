@@ -18,32 +18,49 @@
 <main>
 
   <!-- Today Status -->
-  <section class="card">
-   <div class="status">
-  Status: <strong id="statusText">Not Contributed Today</strong>
-</div>
+ <section class="card">
 
-<p id="redrawStatus" style="margin-bottom:8px;"></p>
-<p id="countdown" style="color:#555;"></p>
+  <div class="status">
+    Status: <strong id="statusText">Not Contributed Today</strong>
+  </div>
 
+  <p id="redrawStatus"></p>
+  <p id="countdown"></p>
 
-    <a href="#" class="cta">Contribute Today</a>
+  <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap;">
+    <input
+      type="number"
+      id="amountInput"
+      placeholder="Enter amount (₦)"
+      style="padding:12px 14px;border-radius:10px;border:1px solid #e5e7eb;width:200px;"
+    />
 
-    <div class="stats">
-      <div class="stat">
-        <div><strong>12</strong></div>
-        <small>Day Streak</small>
-      </div>
-      <div class="stat">
-        <div><strong>$240</strong></div>
-        <small>Total</small>
-      </div>
-      <div class="stat">
-        <div><strong>$40</strong></div>
-        <small>This Month</small>
-      </div>
+    <button id="contributeBtn" class="cta">
+      Contribute
+    </button>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <strong id="balance">₦0</strong>
+      <small>Current Balance</small>
     </div>
-  </section>
+    <div class="stat">
+      <strong id="streak">0</strong>
+      <small>Day Streak</small>
+    </div>
+    <div class="stat">
+      <strong id="total">₦0</strong>
+      <small>Total Contributed</small>
+    </div>
+  </div>
+
+</section>
+
+
+  <tbody id="historyTable">
+</tbody>
+
 
   <!-- History -->
   <section class="card">
