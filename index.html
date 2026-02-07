@@ -5,27 +5,35 @@
   <title>Daily Contribution</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="syles.css">
-
 </head>
 
 <body>
 
 <header>
-  <h1>Daily Contribution</h1>
-<div>📅 <span id="today">Today</span></div>
+  <div class="header-left">
+    <div class="logo-container">
+      <img src="lani.jpeg" alt="LaaniPay Logo" class="logo">
+      <div class="logo-text">
+        <span class="logo-main">LaaniPay</span>
+        <span class="logo-sub">COMMUNITY CONTRIBUTION</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="header-right">
+    <div class="date-display">📅 <span id="today">Today</span></div>
+  </div>
 </header>
 
 <main>
-
   <!-- Today Status -->
   <section class="card">
-   <div class="status">
-  Status: <strong id="statusText">Not Contributed Today</strong>
-</div>
+    <div class="status">
+      Status: <strong id="statusText">Not Contributed Today</strong>
+    </div>
 
-<p id="redrawStatus" style="margin-bottom:8px;"></p>
-<p id="countdown" style="color:#555;"></p>
-
+    <p id="redrawStatus" style="margin-bottom:8px;"></p>
+    <p id="countdown" style="color:#555;"></p>
 
     <a href="#" class="cta">Contribute Today</a>
 
@@ -48,7 +56,6 @@
   <!-- History -->
   <section class="card">
     <h2>History</h2>
-
     <table>
       <thead>
         <tr>
@@ -76,11 +83,8 @@
       </tbody>
     </table>
   </section>
-
 </main>
 
-</body>
 <script src="script.js"></script>
-
-
+</body>
 </html>
