@@ -70,6 +70,11 @@
   // Initial load
   updateDateAndCountdown();
 
+<<<<<<< HEAD
   // Update every second
   setInterval(updateDateAndCountdown, 1000);
+=======
+// balanceEl.textContent = formatNaira(balance);
+// countdownEl.textContent = "Calculating countdown...";
+>>>>>>> dc7f020 (updating)
 

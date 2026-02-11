@@ -328,14 +328,14 @@ main {
 
 /* Matrix dollars animation */
 .card::after {
-  content: '$ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $';
+  content: '$ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $';
   position: absolute;
   top: -100%;
   left: 0;
   width: 100%;
   height: 200%;
   font-size: 18px;
-  color: rgba(255, 255, 255, 0.1);
+  color: rgba(235, 229, 229, 0.1);
   line-height: 24px;
   letter-spacing: 8px;
   white-space: pre-wrap;
@@ -827,4 +827,48 @@ tbody tr:hover {
   75% {
     transform: translateY(-30px) translateX(5px);
   }
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 16px 0;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.amount-box {
+  background: transparent;
+  border: 4px dotted #e5e7eb;
+  border-radius: 14px;
+  padding: 14px 18px;
+  min-width: 180px;
+}
+
+.amount-box span {
+  display: block;
+  font-size: 12px;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+.amount-box strong {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.countdown-box {
+  text-align: right;
+}
+
+#redrawStatus {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+#countdown {
+  font-size: 14px;
+  color: #475569;
 }
