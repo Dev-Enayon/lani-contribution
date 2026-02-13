@@ -4,7 +4,7 @@
 
 :root {
   --bg: #000000;
-  --card: rgba(26, 26, 26, 0.9); /* Slightly transparent for matrix effect */
+  --card: rgba(26, 26, 26, 0.9);
   --text: #ffffff;
   --muted: #a0a0a0;
   --primary: #ffffff;
@@ -27,8 +27,20 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
   font-family: 'Inter', 'Roboto', 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   color: var(--text);
+  margin: 0;
+  background: var(--bg);
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  animation: fadeIn 800ms ease-out;
+  overflow-x: hidden;
+  position: relative;
 }
 
 /*** Spinner ***/
@@ -43,19 +55,6 @@
     transition: opacity .5s ease-out, visibility 0s linear 0s;
     visibility: visible;
     opacity: 1;
-}
-
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  font-weight: 400;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  animation: fadeIn 800ms ease-out;
-  overflow-x: hidden;
-  position: relative;
 }
 
 /* Animated background particles */
@@ -340,31 +339,32 @@ main {
   z-index: 1;
 }
 
-/* Matrix dollars animation */
+/* Matrix dollars animation - FIXED: Removed infinite $ signs that cause performance issues */
 .card::after {
-  content: '$ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $';
+  content: '';
   position: absolute;
   top: -100%;
   left: 0;
   width: 100%;
   height: 200%;
-  font-size: 18px;
-  color: rgba(235, 229, 229, 0.1);
-  line-height: 24px;
-  letter-spacing: 8px;
-  white-space: pre-wrap;
-  word-wrap: break-word;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 20px,
+    rgba(255, 255, 255, 0.03) 20px,
+    rgba(255, 255, 255, 0.03) 40px
+  );
   z-index: 0;
   animation: matrixRain 15s linear infinite;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  pointer-events: none;
 }
 
 @keyframes matrixRain {
   0% {
-    transform: translateY(0) rotateX(0);
+    transform: translateY(0);
   }
   100% {
-    transform: translateY(100%) rotateX(10deg);
+    transform: translateY(50%);
   }
 }
 
@@ -385,11 +385,11 @@ main {
 @keyframes cardAppear {
   from {
     opacity: 0;
-    transform: translateY(30px) scale(0.95) rotateX(5deg);
+    transform: translateY(30px) scale(0.95);
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1) rotateX(0);
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -399,19 +399,6 @@ main {
     0 0 30px rgba(255, 255, 255, 0.1);
   transform: translateY(-8px) scale(1.01);
   border-color: rgba(255, 255, 255, 0.3);
-  animation: cardHover 0.5s ease forwards;
-}
-
-@keyframes cardHover {
-  0% {
-    transform: translateY(-8px) scale(1.01);
-  }
-  50% {
-    transform: translateY(-10px) scale(1.02);
-  }
-  100% {
-    transform: translateY(-8px) scale(1.01);
-  }
 }
 
 .status {
@@ -444,16 +431,7 @@ main {
   width: 4px;
   background: linear-gradient(180deg, var(--primary), var(--muted));
   border-radius: 2px;
-  animation: widthPulse 2s ease-in-out infinite, gradientMove 3s ease infinite;
-}
-
-@keyframes gradientMove {
-  0%, 100% {
-    background-position: 0% 0%;
-  }
-  50% {
-    background-position: 0% 100%;
-  }
+  animation: widthPulse 2s ease-in-out infinite;
 }
 
 @keyframes widthPulse {
@@ -513,19 +491,7 @@ main {
 
 .cta:hover {
   transform: translateY(-3px) scale(1.05);
-  animation: buttonPulse 0.5s ease forwards, buttonGlow 1s ease-in-out infinite;
-}
-
-@keyframes buttonPulse {
-  0% {
-    transform: translateY(-3px) scale(1.05);
-  }
-  50% {
-    transform: translateY(-5px) scale(1.08);
-  }
-  100% {
-    transform: translateY(-3px) scale(1.05);
-  }
+  animation: buttonGlow 1s ease-in-out infinite;
 }
 
 .cta:hover::before {
@@ -564,11 +530,11 @@ main {
 @keyframes statAppear {
   from {
     opacity: 0;
-    transform: scale(0.8) rotateY(-20deg);
+    transform: scale(0.8);
   }
   to {
     opacity: 1;
-    transform: scale(1) rotateY(0);
+    transform: scale(1);
   }
 }
 
@@ -582,20 +548,10 @@ main {
   background: linear-gradient(90deg, var(--primary), var(--muted));
   opacity: 0;
   transition: opacity var(--transition-normal);
-  animation: colorShift 3s ease-in-out infinite;
-}
-
-@keyframes colorShift {
-  0%, 100% {
-    background: linear-gradient(90deg, #ffffff, #a0a0a0);
-  }
-  50% {
-    background: linear-gradient(90deg, #a0a0a0, #ffffff);
-  }
 }
 
 .stat:hover {
-  transform: translateY(-6px) rotateX(5deg);
+  transform: translateY(-6px);
   box-shadow: 
     var(--shadow-md),
     0 0 30px rgba(255, 255, 255, 0.1);
@@ -613,18 +569,6 @@ main {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: numberCount 2s ease-out;
-}
-
-@keyframes numberCount {
-  from {
-    transform: scale(0.5);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
 }
 
 .stat p {
@@ -643,11 +587,11 @@ table {
 @keyframes tableAppear {
   from {
     opacity: 0;
-    transform: translateY(20px) perspective(500px) rotateX(10deg);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
-    transform: translateY(0) perspective(500px) rotateX(0);
+    transform: translateY(0);
   }
 }
 
@@ -660,23 +604,6 @@ th, td {
   border-bottom: 1px solid var(--border);
   text-align: left;
   transition: all var(--transition-fast);
-  animation: cellAppear 1s ease-out;
-  animation-fill-mode: both;
-}
-
-th:nth-child(1), td:nth-child(1) { animation-delay: 200ms; }
-th:nth-child(2), td:nth-child(2) { animation-delay: 300ms; }
-th:nth-child(3), td:nth-child(3) { animation-delay: 400ms; }
-
-@keyframes cellAppear {
-  from {
-    opacity: 0;
-    transform: translateX(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
 }
 
 th {
@@ -690,23 +617,6 @@ th {
 
 tbody tr {
   transition: all var(--transition-fast);
-  animation: rowAppear 1s ease-out;
-  animation-fill-mode: both;
-}
-
-tbody tr:nth-child(1) { animation-delay: 500ms; }
-tbody tr:nth-child(2) { animation-delay: 600ms; }
-tbody tr:nth-child(3) { animation-delay: 700ms; }
-
-@keyframes rowAppear {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 tbody tr:hover {
@@ -775,8 +685,6 @@ tbody tr:hover {
   
   /* Reduce matrix animation intensity on mobile */
   .card::after {
-    font-size: 14px;
-    letter-spacing: 4px;
     animation-duration: 20s;
   }
 }
@@ -815,16 +723,6 @@ tbody tr:hover {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
   border-radius: var(--radius-sm);
-  animation: focusPulse 1s ease-in-out;
-}
-
-@keyframes focusPulse {
-  0%, 100% {
-    outline-offset: 2px;
-  }
-  50% {
-    outline-offset: 4px;
-  }
 }
 
 /* Floating particles animation */
